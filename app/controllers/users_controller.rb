@@ -16,7 +16,7 @@ class UsersController < ApplicationController
         @user.save
         session[:user_id] = @user.id
         flash.notice = "Account succesfully created!"
-        redirect_to root_path
+        redirect_to current_user
     end
 
     private
