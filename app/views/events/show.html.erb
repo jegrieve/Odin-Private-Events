@@ -1,4 +1,22 @@
 <h1>Event</h1>
 
-Event description:<%= @event.description %>
-Created by <%= current_user %>
+<div>
+Event:<%= @event.name %>
+</div>
+<div>
+Created by: <%= current_user.name %>
+</div>
+Attendees:
+<% if @event.attendees.any? %>
+  <% @event.attendees.each do |attendee| %>
+    <%= attendee.name %>
+  <% end %>
+  <% else %>
+  none
+<% end %>
+<div>
+<%= button_to "Enroll", invitations_path(event_id: @event.id, invitee_id: current_user.id) %>
+</div>
+<div>
+<%= link_to "back", events_path %>
+</div>

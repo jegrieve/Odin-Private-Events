@@ -1,7 +1,7 @@
 <h1>Events</h1>
-    
+List of events:
 <ul>
     <% @events.each do |event| %>
-    <li><%= event.description %></li>
+    <li><%= event.name %> in <%= event.location %> on <%= event.date %> <%= link_to "details",event %></li>
     <% end %>
 <ul>
